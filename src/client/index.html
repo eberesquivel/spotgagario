@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Meta Properties -->
+    <meta charset="UTF-8">
+    <title>Open Agar</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/main.css" />
+    <!-- Audio -->
+    <audio id="split_cell" src="audio/split.mp3"></audio>
+    <audio id="spawn_cell" src="audio/spawn.mp3"></audio>
+</head>
+<body>
+    <div id="gameAreaWrapper">
+        <div id="status"><span class="title">Va Ganando</span></div>
+        <div class="chatbox" id="chatbox">
+            <ul id="chatList" class="chat-list"></ul>
+            <input id="chatInput" type="text" class="chat-input" placeholder="Escriber aquí..." maxlength="35" />
+        </div>
+        <div id="mobile">
+           <input type="image" id="split" class="split" src="img/split.png" alt="splitBtn">
+           <input type="image" id="feed" class="feed" src="img/feed.png" alt="feedBtn">
+        </div>
+        <canvas tabindex="1" id="cvs"></canvas>
+    </div>
+    <div id="startMenuWrapper">
+        <div id="startMenu">
+            <p>Iniciar Agar</p>
+            <input type="text" tabindex="0" autofocus placeholder="Escribe tu nick aquí" id="playerNameInput" maxlength="25" />
+            <b class="input-error">Nick sòlo debe contener caracteres alfanuméricos!</b>
+            <br />
+            <a onclick="document.getElementById('spawn_cell').play();"><button id="startButton">Iniciar</button></a>
+            <button id="spectateButton">Observar</button>
+            <button id="settingsButton">Opciones</button>
+            <br />
+            <div id="settings">
+                <h3>Opciones</h3>
+                <ul>
+                    <label><input id="visBord" type="checkbox">Mostrar borde</label>
+                    <label><input id="showMass" type="checkbox">Mostrar número de masa</label>
+                    <br />
+                    <label><input id="continuity" type="checkbox">Continuar aun cuando el cursor se encuentre fuera de la pantalla/label>
+                    <br />
+                    <label><input id="roundFood" type="checkbox" checked>Rounded food</label>
+                    <label><input id="darkMode" type="checkbox" checked>Activar Modo Obscuro</label>
+                </ul>
+            </div>
+            <div id="instructions">
+                <h3>Gameplay</h3>
+                <ul>
+                    <li>Mueve el mouse en la pantalla para mover tu personaje.</li>
+                    <li>Consume comida y otros jugadores para que tu personaje crezca (la comida reaparece cada vez que un jugador la come).</li>
+                    <li>El tamaño de la masa de un jugador es el número de partículas de comida consumidas</li>
+                    <li>Objetivo: tratar de engordar y comer otros jugadores</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- JS -->
+    <script src="//code.jquery.com/jquery-2.2.0.min.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
